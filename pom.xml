@@ -19,8 +19,6 @@
 
     <groupId>com.yabanya.auth</groupId>
     <artifactId>yabanya-auth</artifactId>
-    <version>1.0.0</version>
-
     <packaging>pom</packaging>
 
     <name>yabanya-auth</name>

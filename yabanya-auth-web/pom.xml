@@ -1,36 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>yabanya-auth</artifactId>
-        <groupId>com.yabanya.auth</groupId>
-        <version>1.0.0</version>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>yabanya-auth</artifactId>
+		<groupId>com.yabanya.auth</groupId>
+		<version>1.0.0</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
 
-    <artifactId>yabanya-auth-web</artifactId>
-    <packaging>war</packaging>
+	<artifactId>yabanya-auth-web</artifactId>
+	<packaging>war</packaging>
 
-    <name>yabanya-auth-web</name>
+	<name>yabanya-auth-web</name>
 
-    <dependencies>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>9</java.version>
+		<maven.compiler.source>9</maven.compiler.source>
+		<maven.compiler.target>9</maven.compiler.target>
+	</properties>
 
-        <!-- Internal Dependencies -->
-        <dependency>
-            <groupId>com.yabanya.auth</groupId>
-            <artifactId>yabanya-auth-service</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-    </dependencies>
+	<dependencies>
 
-    <build>
-        <finalName>auth</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+		<!-- Internal Dependencies -->
+		<dependency>
+			<groupId>com.yabanya.auth</groupId>
+			<artifactId>yabanya-auth-service</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>auth</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>

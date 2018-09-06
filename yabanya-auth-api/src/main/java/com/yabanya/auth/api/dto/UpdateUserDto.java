@@ -1,7 +1,8 @@
 package com.yabanya.auth.api.dto;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+
+import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "updateUserDto")
 public class UpdateUserDto implements Serializable {

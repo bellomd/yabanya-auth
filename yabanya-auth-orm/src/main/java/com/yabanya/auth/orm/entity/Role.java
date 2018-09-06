@@ -30,7 +30,11 @@ public class Role extends AbstractAuditedEntity {
         return roleName;
     }
 
-    public String getRoleDescription() {
+    public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
+	public String getRoleDescription() {
         return roleDescription;
     }
 

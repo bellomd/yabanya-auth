@@ -1,10 +1,14 @@
 package com.yabanya.auth.orm.entity;
 
-import com.yabanya.commons.orm.entity.AbstractAuditedEntity;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import org.hibernate.envers.Audited;
 
-import javax.persistence.*;
-import java.util.List;
+import com.yabanya.commons.orm.entity.AbstractAuditedEntity;
 
 @Entity
 @Audited

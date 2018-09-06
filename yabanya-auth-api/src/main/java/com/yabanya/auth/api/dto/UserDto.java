@@ -1,9 +1,8 @@
 package com.yabanya.auth.api.dto;
 
-import javax.validation.constraints.NotBlank;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
-import java.util.List;
+
+import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "userDto")
 public class UserDto implements Serializable {
