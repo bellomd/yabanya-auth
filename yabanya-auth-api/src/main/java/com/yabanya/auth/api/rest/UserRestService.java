@@ -1,7 +1,9 @@
 package com.yabanya.auth.api.rest;
 
-import com.yabanya.auth.api.dto.UpdateUserDto;
+import com.yabanya.auth.api.dto.UserUpdateDto;
+import com.yabanya.auth.api.dto.CreateUserDto;
 import com.yabanya.auth.api.dto.UserDto;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -30,7 +32,7 @@ public interface UserRestService {
             consumes = "application/json application/xml",
             produces = "application/json application/xml",
             response = UserDto.class)
-    UserDto create(final UserDto userDto);
+    UserDto create(final CreateUserDto userDto);
 
     /**
      * Find user with the given id
@@ -59,8 +61,8 @@ public interface UserRestService {
             httpMethod = "PUT",
             consumes = "application/json application/xml",
             produces = "application/json application/xml",
-            response = UserDto.class)
-    UserDto update(final UpdateUserDto updateUserDto);
+            response = CreateUserDto.class)
+    UserDto update(final UserUpdateDto updateUserDto);
 
     /**
      * Delete user with the given id

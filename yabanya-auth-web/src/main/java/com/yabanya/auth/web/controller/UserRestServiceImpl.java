@@ -1,18 +1,25 @@
 package com.yabanya.auth.web.controller;
 
-import com.yabanya.auth.api.dto.UpdateUserDto;
-import com.yabanya.auth.api.dto.UserDto;
-import com.yabanya.auth.api.rest.UserRestService;
-import com.yabanya.auth.orm.entity.User;
-import com.yabanya.auth.exception.UserNotFoundException;
-import com.yabanya.auth.service.UserService;
-import com.yabanya.auth.service.converter.UserConverter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.yabanya.auth.api.dto.CreateUserDto;
+import com.yabanya.auth.api.dto.UserDto;
+import com.yabanya.auth.api.dto.UserUpdateDto;
+import com.yabanya.auth.api.rest.UserRestService;
+import com.yabanya.auth.orm.entity.User;
+import com.yabanya.auth.service.UserService;
+import com.yabanya.auth.service.converter.UserConverter;
 
 @RestController
 public class UserRestServiceImpl implements UserRestService {
@@ -29,8 +36,8 @@ public class UserRestServiceImpl implements UserRestService {
             path = CREATE_USER_PATH,
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public UserDto create(@Valid @RequestBody final UserDto userDto) {
-        return UserConverter.convert(userService.create(UserConverter.convert(userDto)));
+    public UserDto create(@Valid @RequestBody final CreateUserDto createUserDto) {
+        return UserConverter.convert(userService.create(UserConverter.convert(createUserDto)));
     }
 
     @Override
@@ -47,7 +54,7 @@ public class UserRestServiceImpl implements UserRestService {
             path = UPDATE_USER_PATH,
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public UserDto update(@Valid @RequestBody final UpdateUserDto updateUserDto) {
+    public UserDto update(@Valid @RequestBody final UserUpdateDto updateUserDto) {
         final User user = userService.findById(updateUserDto.getId());
         return UserConverter.convert(userService.update(UserConverter.convert(user, updateUserDto)));
     }

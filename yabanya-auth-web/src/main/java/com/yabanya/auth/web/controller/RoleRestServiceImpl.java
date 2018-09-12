@@ -2,9 +2,13 @@ package com.yabanya.auth.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.yabanya.auth.api.dto.CreateRoleDto;
 import com.yabanya.auth.api.dto.RoleDto;
 import com.yabanya.auth.api.dto.RoleUpdateDto;
 import com.yabanya.auth.api.rest.RoleRestService;
@@ -27,12 +31,12 @@ public class RoleRestServiceImpl implements RoleRestService {
             path = CREATE_ROLE_PATH,
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-	public RoleDto create(RoleDto roleDto) {
-		return RoleConverter.convert(roleService.create(RoleConverter.convert(roleDto)));
+	public RoleDto create(CreateRoleDto createRoleDto) {
+		return RoleConverter.convert(roleService.create(RoleConverter.convert(createRoleDto)));
 	}
 
 	@Override
-	@PostMapping(
+	@GetMapping(
             path = FIND_ROLE_BY_ID_PATH,
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
@@ -41,7 +45,7 @@ public class RoleRestServiceImpl implements RoleRestService {
 	}
 
 	@Override
-	@PostMapping(
+	@PutMapping(
             path = UPDATE_ROLE_PATH,
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
@@ -52,7 +56,7 @@ public class RoleRestServiceImpl implements RoleRestService {
 	}
               
 	@Override
-	@PostMapping(
+	@DeleteMapping(
             path = DELETE_ROLE_PATH,
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
@@ -61,7 +65,7 @@ public class RoleRestServiceImpl implements RoleRestService {
 	}
 
 	@Override
-	@PostMapping(
+	@PutMapping(
             path = ACTIVATE_ROLE_PATH,
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
@@ -70,7 +74,7 @@ public class RoleRestServiceImpl implements RoleRestService {
 	}
 
 	@Override
-	@PostMapping(
+	@PutMapping(
             path = PASSIVATE_ROLE_PATH,
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
@@ -79,7 +83,7 @@ public class RoleRestServiceImpl implements RoleRestService {
 	}
 
 	@Override
-	@PostMapping(
+	@GetMapping(
             path = FIND_ROLE_BY_ROLENAME_PATH,
             consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE},
             produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})

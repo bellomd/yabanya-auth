@@ -1,5 +1,6 @@
 package com.yabanya.auth.api.rest;
 
+import com.yabanya.auth.api.dto.CreateRoleDto;
 import com.yabanya.auth.api.dto.RoleDto;
 import com.yabanya.auth.api.dto.RoleUpdateDto;
 
@@ -30,7 +31,7 @@ public interface RoleRestService {
             consumes = "application/json application/xml",
             produces = "application/json application/xml",
             response = RoleDto.class)
-    RoleDto create(final RoleDto roleDto);
+    RoleDto create(final CreateRoleDto createRoleDto);
 
     /**
      * Find role with the given id

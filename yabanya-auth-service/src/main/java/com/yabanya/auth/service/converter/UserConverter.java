@@ -1,6 +1,7 @@
 package com.yabanya.auth.service.converter;
 
-import com.yabanya.auth.api.dto.UpdateUserDto;
+import com.yabanya.auth.api.dto.UserUpdateDto;
+import com.yabanya.auth.api.dto.CreateUserDto;
 import com.yabanya.auth.api.dto.UserDto;
 import com.yabanya.auth.orm.entity.User;
 import org.apache.commons.lang3.StringUtils;
@@ -9,21 +10,22 @@ public final class UserConverter {
 
     private UserConverter() {}
 
-    public static User convert(final UserDto userDto) {
+    public static User convert(final CreateUserDto createUserDto) {
 
-        return  User.newBuilder(userDto.getUsername(), userDto.getPassword())
-                .firstName(userDto.getFirstName())
-                .middleName(userDto.getMiddleName())
-                .lastName(userDto.getLastName())
-                .phoneNumber(userDto.getPhoneNumber())
-                .emailAddress(userDto.getEmailAddress())
-                .contactAddress(userDto.getContactAddress())
+        return  User.newBuilder(createUserDto.getUsername(), createUserDto.getPassword())
+                .firstName(createUserDto.getFirstName())
+                .middleName(createUserDto.getMiddleName())
+                .lastName(createUserDto.getLastName())
+                .phoneNumber(createUserDto.getPhoneNumber())
+                .emailAddress(createUserDto.getEmailAddress())
+                .contactAddress(createUserDto.getContactAddress())
                 .build();
     }
 
     public static UserDto convert(final User user) {
 
         return new UserDto.UserDtoBuilder()
+        		.id(user.getId())
                 .firstName(user.getFirstName())
                 .middleName(user.getMiddleName())
                 .lastName(user.getLastName())
@@ -34,7 +36,7 @@ public final class UserConverter {
                 .build();
     }
 
-    public static User convert(final User user, final UpdateUserDto updateUserDto) {
+    public static User convert(final User user, final UserUpdateDto updateUserDto) {
 
         if (StringUtils.isNotBlank(updateUserDto.getFirstName())) {
             user.setFirstName(updateUserDto.getFirstName());

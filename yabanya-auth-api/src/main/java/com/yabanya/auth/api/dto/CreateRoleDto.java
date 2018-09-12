@@ -6,23 +6,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import io.swagger.annotations.ApiModel;
 
-@XmlRootElement(name = "roleDto")
-@ApiModel(value = "RoleDto")
-public class RoleDto implements Serializable {
+@XmlRootElement(name = "createRoleDto")
+@ApiModel(value = "CreateRoleDto")
+public class CreateRoleDto implements Serializable {
 
-	private static final long serialVersionUID = 6570789361025344235L;
+	private static final long serialVersionUID = -2150351800309404204L;
 
-	private Long id;
 	private String roleName;
 	private String roleDescription;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getRoleName() {
 		return roleName;

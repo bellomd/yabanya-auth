@@ -4,36 +4,35 @@ import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-import io.swagger.annotations.ApiModel;
+@XmlRootElement(name = "updateUserDto")
+public class UserUpdateDto implements Serializable {
 
-@XmlRootElement(name = "userDto")
-@ApiModel(value = "UserDto")
-public class UserDto implements Serializable {
+    private static final long serialVersionUID = 8040646108712776135L;
 
-	private static final long serialVersionUID = -3475219908795373184L;
-	
-	private Long id;
-	private String firstName;
+    private Long id;
+    private String firstName;
     private String middleName;
     private String lastName;
-    private String username;
-    private String password;
     private String phoneNumber;
     private String emailAddress;
     private String contactAddress;
 
-    private UserDto() {}
-
-    private UserDto(final UserDtoBuilder builder) {
-    	this.id = builder.id;
+    private UserUpdateDto(final UpdateUserDtoBuilder builder) {
+        this.id = builder.id;
         this.firstName = builder.firstName;
         this.middleName = builder.middleName;
         this.lastName = builder.lastName;
-        this.username = builder.username;
-        this.password = builder.password;
         this.phoneNumber = builder.phoneNumber;
         this.emailAddress = builder.emailAddress;
         this.contactAddress = builder.contactAddress;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(final Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -60,20 +59,6 @@ public class UserDto implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(final String username) {
-        this.username = username;
-    }
-
-    public void setPassword(final String password) {
-        this.password = password;
-    }
-
-    public String getPassword() { return this.password; }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -98,77 +83,53 @@ public class UserDto implements Serializable {
         this.contactAddress = contactAddress;
     }
 
-    public Long getId() {
-		return id;
-	}
+    public static class UpdateUserDtoBuilder {
 
-	public void setId(final Long id) {
-		this.id = id;
-	}
-
-	public static UserDtoBuilder newBuilder() {
-        return new UserDtoBuilder();
-    }
-
-    public static class UserDtoBuilder {
-
-    	private Long id;
+        private Long id;
         private String firstName;
         private String middleName;
         private String lastName;
-        private String username;
-        private String password;
         private String phoneNumber;
         private String emailAddress;
         private String contactAddress;
-        
-        public UserDtoBuilder id(final Long id) {
-        	this.id =  id;
-        	return this;
+
+        public UpdateUserDtoBuilder id(final Long id) {
+            this.id = id;
+            return this;
         }
 
-        public UserDtoBuilder firstName(final String firstName) {
+        public UpdateUserDtoBuilder firstName(final String firstName) {
             this.firstName = firstName;
             return this;
         }
 
-        public UserDtoBuilder middleName(final String middleName) {
+        public UpdateUserDtoBuilder middleName(final String middleName) {
             this.middleName = middleName;
             return this;
         }
 
-        public UserDtoBuilder lastName(final String lastName) {
+        public UpdateUserDtoBuilder lastName(final String lastName) {
             this.lastName = lastName;
             return this;
         }
 
-        public UserDtoBuilder username(final String username) {
-            this.username = username;
-            return this;
-        }
-
-        public UserDtoBuilder password(final String password) {
-            this.password = password;
-            return this;
-        }
-
-        public UserDtoBuilder phoneNumber(final String phoneNumber) {
+        public UpdateUserDtoBuilder phoneNumber(final String phoneNumber) {
             this.phoneNumber = phoneNumber;
             return this;
         }
 
-        public UserDtoBuilder emailAddress(final String emailAddress) {
+        public UpdateUserDtoBuilder emailAddress(final String emailAddress) {
             this.emailAddress = emailAddress;
             return this;
         }
 
-        public UserDtoBuilder contactAddress(final String contactAddress) {
+        public UpdateUserDtoBuilder contactAddress(final String contactAddress) {
             this.contactAddress = contactAddress;
             return this;
         }
 
-        public UserDto build() {
-            return new UserDto(this);
+        public UserUpdateDto build() {
+            return new UserUpdateDto(this);
         }
     }
 }
